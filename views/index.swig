@@ -11,19 +11,19 @@
             <p>the messages will appear in the box below.</p>
         </div>
         <div class="col s12">
-            <p id="chatbox" class="z-depth-1">Bot: Hey!</p>
+            <p id="chatbox" class="z-depth-1">Bot: Hey!<br></p>
         </div>
         <form class="col s12">
             <div class="row">
                 <div class="input-field col s4">
                     <i class="material-icons prefix">account_circle</i>
-                    <input id="icon_prefix" type="text" class="validate">
-                    <label for="icon_prefix">Nickname</label>
+                    <input id="nickname" type="text" class="validate" required>
+                    <label for="nickname">Nickname</label>
                 </div>
                 <div class="input-field col s6">
                     <i class="material-icons prefix">mode_edit</i>
-                    <input id="icon_prefix2" type="text" class="validate">
-                    <label for="icon_prefix2" class="">Message</label>
+                    <input id="message" type="text" class="validate" required>
+                    <label for="message" class="">Message</label>
                 </div>
                 <div class="input-field col s2">
                     <button class="btn waves-effect waves-light" type="submit" name="action">Submit
