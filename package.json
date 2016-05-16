@@ -1,8 +1,12 @@
 {
-  "name": "chat_dapulse",
+  "name": "nodejs_chat",
   "version": "1.0.0",
-  "description": "JS test",
+  "description": "POC for the simple chat w/o websockets",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/garciamax/nodejs_chat.git"
+  },
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
