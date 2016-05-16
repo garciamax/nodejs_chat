@@ -3,7 +3,7 @@ var table_name = 'messages';
 
 var messages = {
     get: function (req, res, next) {
-        var _last_id = req.query.last_id;
+        var _last_id = req.sanitize(req.query.last_id);
         if(_last_id){
             db.select('*')
                 .from(table_name)
@@ -21,6 +21,8 @@ var messages = {
     },
     post: function (req, res, next) {
         req.body.user_id = req.sessionID;
+        req.body.nickname = req.sanitize(req.body.nickname);
+        req.body.message = req.sanitize(req.body.message);
         db(table_name)
             .returning('messages_id')
             .insert(req.body)

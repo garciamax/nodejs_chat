@@ -1,12 +1,12 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var session = require('express-session');
-
-var routes = require('./routes/index');
-var api = require('./routes/api');
-
+var express = require('express')
+    ,path = require('path')
+    ,cookieParser = require('cookie-parser')
+    ,bodyParser = require('body-parser')
+    ,session = require('express-session')
+    ,expressSanitizer = require('express-sanitizer')
+    ,routes = require('./routes/index')
+    ,api = require('./routes/api')
+;
 var db = require('./db');
 var KnexSessionStore = require('connect-session-knex')(session);
 var store = new KnexSessionStore({
@@ -32,6 +32,7 @@ swig.setDefaults({ cache: false });
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(expressSanitizer());
 app.use(cookieParser('secretnah'));
 app.use(session({
     cookie: { maxAge: 6 * 60 * 60 * 1000 },//6 hrs
